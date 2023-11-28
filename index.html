@@ -1,25 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- PUT A TITLE IN HERE -->
-    <title>This is the demo</title>
+    <title>Recipe Generator</title>
     <!-- PUT A DESCRIPTION IN HERE -->
     <meta name="description" content="describe content of the page here...." />
-    <!-- LINK TO NORMALIZE (FOR CONSISTENCY) -->
-    <link rel="stylesheet" href="styles.normalize.css" />
     <!-- LINK TO ANY FRAMEWORK STYLES HERE-->
     <!-- LINK TO YOUR STYLES -->
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/styles.css" type="text/css" />
+    <link rel="stylesheet" href="./styles/normalize.css" type="text/css">
     <!-- LINK TO EXTERNAL JS LIBRARIES HERE -->
     <!-- LINK TO YOUR JS HERE. NOTE THE DEFER ATTRIBUTE. -->
     <script src="scripts/scripts.js" defer></script>
-  </head>
-  <body>
-    <!-- YOUR HTML GOES HERE -->
+</head>
 
+<body>
+    <!-- YOUR HTML GOES HERE -->
+    <main>
+        <header>
+            <div class="sitename">palette pallette</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        <h1 class="headline">
+            Recipe Generator
+        </h1>
+        <section class="container" id="main-container">
+
+            <div class="ingredients">
+                <ul class="list1 dairy">
+                    <li onclick="selectItem('dairy', 'Milk')">
+                        <img src="./images/Milk.png" alt="">
+                    </li>
+                    <li onclick="selectItem('dairy', 'Cheese')">
+                        <img src="./images/Cheese.png" alt="">
+                    </li>
+                    <li onclick="selectItem('dairy', 'Butter')">
+                        <img src="./images/Butter.png" alt="">
+                    </li>
+                </ul>
+                <ul class="list2 vegetables">
+                    <li onclick="selectItem('vegetables', 'Broccoli')">
+                        <img src="./images/Broccoli.png" alt="">
+                    </li>
+                    <li onclick="selectItem('vegetables', 'Cabbage')">
+                        <img src="./images/Cabbage.png" alt="">
+                    </li>
+                    <li onclick="selectItem('vegetables', 'Lettuce')">
+                        <img src="./images/Lettuce.png" alt="">
+                    </li>
+                    <li onclick="selectItem('vegetables', 'Onion')">
+                        <img src="./images/Onion.png" alt="">
+                    </li>
+
+                </ul>
+                <ul class="list3 protein">
+                    <li onclick="selectItem('protein', 'Beef')">
+                        <img src="./images/Beef.png" alt="">
+                    </li>
+                    <li onclick="selectItem('protein', 'Fish')">
+                        <img src="./images/Fish.png" alt="">
+                    </li>
+                    <li onclick="selectItem('protein', 'Chicken')">
+                        <img src="./images/Chicken.png" alt="">
+                    </li>
+                    <li onclick="selectItem('protein', 'Pork')">
+                        <img src="./images/Pork.png" alt="">
+                    </li>
+                    <li onclick="selectItem('protein', 'Eggs')">
+                        <img src="./images/Eggs.png" alt="">
+                    </li>
+                </ul>
+                <ul class="list4 carbs">
+                    <li onclick="selectItem('carbs', 'Spaghetti')">
+                        <img src="./images/Spaghetti.png" alt="">
+                    </li>
+                    <li onclick="selectItem('carbs', 'Rice')">
+                        <img src="./images/Rice.png" alt="">
+                    </li>
+                    <li onclick="selectItem('carbs', 'Potatoes')">
+                        <img src="./images/Potatoes.png" alt="">
+                    </li>
+                </ul>
+            </div>
+            <div class="bowl-container">
+                <ul class="bowl" id="bowl">
+                </ul>
+            </div>
+
+
+        </section>
+        <div class="btns">
+            <button id="generate" onclick="generateRecipe()">Generate</button>
+            <button id="reset" onclick="resetBowl()">Reset</button>
+        </div>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <div id="popupContent"></div>
+            </div>
+        </div>
+    </main>
     <!-- YOUR EXTERNAL PLUG-IN MAY ASK YOU TO PUT A SCRIPT TAG HERE. -->
-  </body>
+</body>
+
 </html>
