@@ -187,14 +187,17 @@ button:hover {
 }
 
 .close {
-  color: #f4f5f6;
+  display: flex;
   float: right;
-  font-size: 28px;
-  font-weight: bold;
-  padding: 5px;
+  padding: 5px 10px;
   background-color: #e78474;
+  color: #f4f5f6;
   border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 26px;
 }
+
 
 .close:hover, .close:focus {
   color: #262730;
