@@ -25,6 +25,8 @@ function generateRecipe() {
 
     if (dairy && protein) {
         displayRecipe(getDairyProteinRecipe(dairy, protein));
+    } else if (protein && carbs) {
+        displayRecipe(getProteinCarbsRecipe(protein, carbs));
     } else if (protein && vegetables) {
         displayRecipe(getProteinVegetablesRecipe(protein, vegetables));
     } else if (carbs && vegetables && dairy) {
@@ -153,6 +155,116 @@ function getDairyProteinRecipe(dairy, protein) {
 
     return 'No recipe available for the selected combination.';
 }
+function getProteinCarbsRecipe(protein, carbs) {
+    if (protein === 'Chicken' && carbs === 'Rice') {
+        const recipeName = '<h2>Chicken Teriyaki over Rice</h2>';
+        const recipeDetails = `
+            <p>A popular Asian dish featuring sautéed chicken glazed in a sweet and savory teriyaki sauce, served over a bed of fluffy white rice.</p>
+            <p>Cook rice as per package instructions. In a separate pan, sauté chicken pieces until fully cooked, then add teriyaki sauce and simmer for a few minutes. Serve the chicken and sauce over the cooked rice.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (protein === 'Chicken' && carbs === 'Spaghetti') {
+        const recipeName = '<h2>Chicken Alfredo Spaghetti</h2>';
+        const recipeDetails = `
+           <p>An Italian-American classic, this dish combines tender chicken strips with creamy Alfredo sauce, served over al dente spaghetti.</p>
+           <p>Boil spaghetti until al dente. In another pan, sauté chicken pieces, then mix in Alfredo sauce and warm it up. Combine the cooked spaghetti with the chicken and sauce.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (protein === 'Chicken' && carbs === 'Potatoes') {
+        const recipeName = '<h2>Herb Roasted Chicken and Potatoes</h2>';
+        const recipeDetails = `
+           <p>A wholesome meal with chicken pieces and potatoes roasted with herbs like rosemary and thyme, creating a comforting and flavorful dish.</p>
+           <p>Season chicken pieces and potatoes with herbs, salt, and pepper. Roast in the oven at 375°F (190°C) until the chicken is cooked through and potatoes are tender.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (protein === 'Beef' && carbs === 'Rice') {
+        const recipeName = '<h2>Beef Stir-Fry with Vegetables and Rice</h2>';
+        const recipeDetails = `
+           <p>A quick and easy stir-fry dish featuring thinly sliced beef and colorful vegetables, seasoned with soy and sesame, served over steamed rice.</p>
+           <p>Cook rice as instructed. Stir-fry sliced beef and vegetables in a pan with a bit of oil, add soy sauce and sesame oil, and cook until beef is done. Serve over rice.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (protein === 'Beef' && carbs === 'Spaghetti') {
+        const recipeName = '<h2>Classic Bolognese Spaghetti</h2>';
+        const recipeDetails = `
+           <p>A hearty Italian pasta dish where spaghetti is topped with a rich and meaty tomato-based Bolognese sauce, often simmered for depth of flavor.</p>
+           <p>Cook spaghetti as per instructions. In a saucepan, cook ground beef until browned, add tomato sauce, and simmer. Serve the sauce over the spaghetti.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (protein === 'Beef' && carbs === 'Potatoes') {
+        const recipeName = '<h2>Beef Stew with Roasted Potatoes</h2>';
+        const recipeDetails = `
+           <p>A nourishing stew made with tender chunks of beef, slow-cooked in a savory broth, accompanied by perfectly roasted potatoes.</p>
+           <p>Brown chunks of beef in a pot, add broth and seasonings, and let it simmer until tender. Roast potatoes in the oven and serve them alongside the beef stew.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (protein === 'Pork' && carbs === 'Rice') {
+        const recipeName = '<h2>Sweet and Sour Pork over Rice</h2>';
+        const recipeDetails = `
+           <p>A popular Chinese dish with cubes of pork cooked in a tangy sweet and sour sauce, accompanied by bell peppers and onions, served over rice.</p>
+           <p>Cook rice as per instructions. In a pan, cook diced pork until browned, add bell peppers, onions, and sweet and sour sauce, cooking until sauce thickens. Serve over rice.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (protein === 'Pork' && carbs === 'Spaghetti') {
+        const recipeName = '<h2>Pork Meatball Marinara Spaghetti</h2>';
+        const recipeDetails = `
+           <p>Flavorful pork meatballs simmered in a classic marinara sauce, served atop a bed of spaghetti, offering a delightful twist to traditional spaghetti dishes.</p>
+           <p>Make meatballs from ground pork and cook them in a pan. Boil spaghetti, and in a separate pot, heat marinara sauce. Combine spaghetti, meatballs, and sauce.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (protein === 'Pork' && carbs === 'Potatoes') {
+        const recipeName = '<h2>Grilled Pork Chops with Scalloped Potatoes</h2>';
+        const recipeDetails = `
+           <p>Juicy grilled pork chops paired with creamy scalloped potatoes, a combination that provides both rich flavor and comforting texture.</p>
+           <p>Grill seasoned pork chops to desired doneness. Layer sliced potatoes in a baking dish with cream and cheese, and bake until golden and tender.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (protein === 'Fish' && carbs === 'Rice') {
+        const recipeName = '<h2>Lemon Dill Fish with Rice Pilaf</h2>';
+        const recipeDetails = `
+           <p>A light and refreshing dish featuring fish fillets seasoned with lemon and dill, served alongside a flavorful rice pilaf.</p>
+           <p>Prepare rice pilaf as per package instructions. Season fish fillets with lemon and dill, then bake or grill until cooked. Serve with rice pilaf.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (protein === 'Fish' && carbs === 'Spaghetti') {
+        const recipeName = '<h2>Garlic Butter Fish Spaghetti</h2>';
+        const recipeDetails = `
+           <p>An elegant yet simple dish where spaghetti is tossed with garlic butter-coated fish, offering a light and zesty flavor profile.</p>
+           <p>Cook spaghetti. In a pan, cook fish fillets with garlic and butter. Toss the cooked spaghetti with the garlic butter fish.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (protein === 'Fish' && carbs === 'Potatoes') {
+        const recipeName = '<h2>Herb-Crusted Fish with Mashed Potatoes</h2>';
+        const recipeDetails = `
+           <p>Oven-baked fish fillets with a crispy herb crust, served with smooth and creamy mashed potatoes for a delightful contrast in textures.</p>
+           <p>Coat fish fillets with herbs and breadcrumbs, bake until crispy. Boil and mash potatoes with butter and milk. Serve fish over mashed potatoes.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (protein === 'Eggs' && carbs === 'Rice') {
+        const recipeName = '<h2>Egg Fried Rice</h2>';
+        const recipeDetails = `
+           <p>A versatile and satisfying dish, combining rice stir-fried with eggs, vegetables, and a hint of soy sauce, perfect for a quick and easy meal.</p>
+           <p>Sauté cooked rice with scrambled eggs, vegetables, and soy sauce. Garnish with green onions and sesame seeds.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (protein === 'Eggs' && carbs === 'Spaghetti') {
+        const recipeName = '<h2>Spaghetti alla Carbonara</h2>';
+        const recipeDetails = `
+           <p>A classic Roman pasta dish made with spaghetti, crispy pancetta or bacon, eggs, and Parmesan, known for its creamy texture without the use of cream.</p>
+           <p>Cook spaghetti and in a separate bowl, whisk together eggs and Parmesan. Combine the hot spaghetti with the egg mixture, adding cooked pancetta or bacon.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (protein === 'Eggs' && carbs === 'Potatoes') {
+        const recipeName = '<h2>Spanish Potato Omelette</h2>';
+        const recipeDetails = `
+           <p>A traditional Spanish dish, also known as Tortilla Española, made with eggs, potatoes, and onions, often enjoyed as a tapas item or a light meal.</p>
+           <p>Thinly slice potatoes and onions, and fry until tender. Pour beaten eggs over the potatoes and onions in a pan, cook until set, then flip and cook the other side.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    }
+    return 'No recipe available for the selected combination.';
+}
+
 function getProteinVegetablesRecipe(protein, vegetables) {
     if (protein === 'Chicken' && vegetables === 'Broccoli') {
         const recipeName = '<h2>Broccoli Chicken Stir-Fry</h2>';
@@ -439,8 +551,92 @@ function getDairyProteinVegetablesCarbsRecipe(dairy, protein, vegetables, carbs)
            <p>Make fried rice with scrambled eggs, serve with cheese melted on top and a side of fresh lettuce.</p>
         `;
         return `${recipeName}\n\n${recipeDetails}`;
-    }
+    } else if (dairy === 'Milk' && protein === 'Beef' && vegetables === 'Lettuce' && carbs === 'Potatoes') {
+        const recipeName = '<h2>Creamy Beef Potato Soup with Lettuce Ribbons</h2>';
+        const recipeDetails = `
+           <p>A rich and hearty soup featuring tender beef and soft potatoes in a creamy broth, garnished with delicate lettuce ribbons for a touch of freshness.</p>
+           <p>Cook diced beef and potatoes in a broth until tender, then stir in milk to achieve a creamy texture. Serve the soup hot, garnished with thinly sliced lettuce for freshness.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Cheese' && protein === 'Pork' && vegetables === 'Cabbage' && carbs === 'Spaghetti') {
+        const recipeName = '<h2>Cheesy Pork Spaghetti with Braised Cabbage</h2>';
+        const recipeDetails = `
+           <p>A comforting pasta dish that combines savory pork with braised cabbage, all intertwined with spaghetti and topped with melted cheese for a satisfying meal.</p>
+           <p>Boil spaghetti and set it aside. In a pan, sauté ground pork with chopped cabbage until fully cooked. Combine the cooked spaghetti with the pork and cabbage, top with cheese, and bake until the cheese is melted and bubbly.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Butter' && protein === 'Fish' && vegetables === 'Onion' && carbs === 'Rice') {
+        const recipeName = '<h2>Buttered Onion Rice with Grilled Fish</h2>';
+        const recipeDetails = `
+           <p>A delightful pairing of grilled fish served over a bed of buttery, onion-flavored rice, offering a simple yet flavorful seafood experience.</p>
+           <p>Grill seasoned fish fillets until fully cooked. Meanwhile, cook rice with butter and diced onions until the rice is fluffy. Serve the grilled fish over the buttered onion rice.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Milk' && protein === 'Chicken' && vegetables === 'Onion' && carbs === 'Spaghetti') {
+        const recipeName = '<h2>Chicken and Broccoli Alfredo Spaghetti</h2>';
+        const recipeDetails = `
+           <p>A creamy and indulgent pasta dish where tender chicken pieces and broccoli florets are tossed in a rich Alfredo sauce with spaghetti, perfect for a comforting dinner.</p>
+           <p>Cook spaghetti and set aside. Sauté chicken pieces in a pan, add steamed broccoli, and then mix in Alfredo sauce. Combine this mixture with the cooked spaghetti and serve.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Cheese' && protein === 'Fish' && vegetables === 'Lettuce' && carbs === 'Potatoes') {
+        const recipeName = '<h2>Grilled Fish with Cheese-Topped Lettuce and Potato Salad</h2>';
+        const recipeDetails = `
+           <p>A light and healthy dish featuring grilled fish served alongside a fresh lettuce and potato salad, topped with a sprinkle of cheese for added flavor.</p>
+           <p>Grill seasoned fish fillets to your liking. Make a salad by tossing boiled potatoes and lettuce with a vinaigrette dressing. Top the salad with the grilled fish and sprinkle with shredded cheese.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Butter' && protein === 'Eggs' && vegetables === 'Cabbage' && carbs === 'Rice') {
+        const recipeName = '<h2>Savory Cabbage and Egg Fried Rice</h2>';
+        const recipeDetails = `
+           <p>A tasty and easy-to-make dish combining stir-fried rice with cabbage and scrambled eggs, seasoned for a savory and satisfying meal.</p>
+           <p>Stir-fry cooked rice with chopped cabbage and scrambled eggs, seasoning with soy sauce and your choice of spices. Serve this dish hot for a quick and satisfying meal.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === '<Milk>' && protein === 'Beef' && vegetables === 'Onion' && carbs === 'Rice') {
+        const recipeName = '<h2>Creamy Beef and Onion Risotto</h2>';
+        const recipeDetails = `
+           <p>A rich and creamy risotto infused with the flavors of beef and onion, creating a luxurious and comforting dish that's perfect for a cozy night in.</p>
+           <p>Start by sautéing diced onions and ground beef in a pan. Gradually add rice and broth to the mixture, stirring constantly. Once the rice is nearly cooked, stir in milk to create a creamy consistency.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === '<Cheese>' && protein === 'Pork' && vegetables === 'Broccoli' && carbs === 'Potatoes') {
+        const recipeName = '<h2>Pork and Broccoli Potato Gratin with Cheese</h2>';
+        const recipeDetails = `
+           <p>A deliciously baked gratin featuring layers of sliced potatoes, pork, and broccoli, all smothered in a creamy cheese sauce for a decadent treat.</p>
+           <p>In a baking dish, create layers of sliced potatoes, cooked pork, and broccoli. Cover everything with a cheese sauce and bake in the oven until the top is golden and the sauce is bubbly.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === '<Butter>' && protein === 'Beef' && vegetables === 'Lettuce' && carbs === 'Spaghetti') {
+        const recipeName = '<h2>Beef in Butter Sauce with Lettuce Spaghetti Toss</h2>';
+        const recipeDetails = `
+           <p>Tender beef cooked in a flavorful butter sauce, served over a bed of lightly tossed spaghetti with fresh lettuce, combining richness with a hint of crispness.</p>
+           <p>Cook beef strips in a butter sauce, seasoning as desired. Separately, toss cooked spaghetti with chopped lettuce. Serve the beef over the spaghetti and lettuce mixture.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === '<Milk>' && protein === 'Chicken' && vegetables === 'Cabbage' && carbs === 'Potatoes') {
+        const recipeName = '<h2>Chicken and Cabbage Stew with Creamy Potato Topping</h2>';
+        const recipeDetails = `
+           <p>A homely stew made with chicken and cabbage, topped with a creamy mashed potato crust, perfect for a warming and filling meal.</p>
+           <p>Prepare a stew with chicken and cabbage. Once the stew is ready, top it with a layer of mashed potatoes and bake the dish until the potato topping is crispy and golden.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === '<Cheese>' && protein === 'Fish' && vegetables === 'Onion' && carbs === 'Rice') {
+        const recipeName = '<h2>Baked Fish with Cheese and Onion Rice Pilaf</h2>';
+        const recipeDetails = `
+           <p>Oven-baked fish served with a side of cheesy onion rice pilaf, creating a delightful balance of delicate fish flavor and rich, aromatic rice.</p>
+           <p>Oven-bake seasoned fish fillets until they are cooked through. In a separate pot, prepare a rice pilaf with onions, and stir in cheese until melted. Serve the baked fish over this cheesy onion rice.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === '<Butter>' && protein === 'Pork' && vegetables === 'Broccoli' && carbs === 'Rice') {
+        const recipeName = '<h2>Pork and Broccoli Rice Sautéed in Butter</h2>';
+        const recipeDetails = `
+           <p>A simple yet tasty dish featuring pork and broccoli sautéed in butter, served over a bed of fluffy rice, offering a quick and satisfying meal option.</p>
+           <p>In a skillet, sauté pork and broccoli in butter until both are cooked through. Serve this mixture over cooked rice for a simple, yet flavorful meal.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
     return 'No recipe available for the selected combination.';
+}
 }
 
 function getRecipeDetails(items) {
