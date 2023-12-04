@@ -23,20 +23,23 @@ function generateRecipe() {
     const vegetables = selectedItems['vegetables'];
     const carbs = selectedItems['carbs'];
 
-    if (dairy && protein) {
-        displayRecipe(getDairyProteinRecipe(dairy, protein));
-    } else if (protein && carbs) {
-        displayRecipe(getProteinCarbsRecipe(protein, carbs));
-    } else if (protein && vegetables) {
-        displayRecipe(getProteinVegetablesRecipe(protein, vegetables));
-    } else if (carbs && vegetables && dairy) {
-        displayRecipe(getCarbsVegetablesDairyRecipe(carbs, vegetables, dairy));
-    } else if (dairy && protein && vegetables) {
-        displayRecipe(getDairyProteinVegetablesRecipe(dairy, protein, vegetables));
-    } else if (dairy && protein && vegetables && carbs){
-        displayRecipe(getDairyProteinVegetablesCarbsRecipe(dairy, protein, vegetables, carbs))
-    }
-    
+
+    if (dairy && protein && vegetables && carbs) {
+    displayRecipe(getDairyProteinVegetablesCarbsRecipe(dairy, protein, vegetables, carbs));
+} else if (dairy && protein && vegetables) {
+    displayRecipe(getDairyProteinVegetablesRecipe(dairy, protein, vegetables));
+} else if (carbs && vegetables && dairy) {
+    displayRecipe(getCarbsVegetablesDiaryRecipe(carbs, vegetables, dairy));
+} else if (carbs && vegetables && protein) {
+    displayRecipe(getCarbsVegetablesProteinRecipe(carbs, vegetables, protein));
+} else if (protein && vegetables) {
+    displayRecipe(getProteinVegetablesRecipe(protein, vegetables));
+} else if (protein && carbs) {
+    displayRecipe(getProteinCarbsRecipe(protein, carbs));
+} else if (dairy && protein) {
+    displayRecipe(getDairyProteinRecipe(dairy, protein));
+}
+
     else {
         displayRecipe('No recipe available for the selected combination.');
     }
@@ -392,6 +395,137 @@ function getCarbsVegetablesDairyRecipe (carbs, vegetables, dairy) {
     }
     return 'No recipe available for the selected combination.';
 }
+function getCarbsVegetablesProteinRecipe(carbs, vegetables, protein){
+    if (carbs === 'Potatoes' && vegetables === 'Broccoli' && protein === 'Chicken') {
+        const recipeName = '<h2>Savory Grilled Chicken with Garlic Broccoli Mash</h2>';
+        const recipeDetails = `
+            <p>This dish features perfectly grilled chicken breasts served with a side of creamy garlic-infused mashed potatoes and tender roasted broccoli.</p>
+            <p>Grill seasoned chicken breasts until fully cooked and juicy. For the mash, boil potatoes until tender, then mash with garlic, butter, and milk. Roast broccoli florets in the oven with olive oil and seasonings until tender and slightly crispy.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (carbs === 'Rice' && vegetables === 'Lettuce' && protein === 'Chicken') {
+        const recipeName = '<h2>Rainbow Chicken Veggie Stir-Fry over Rice</h2>';
+        const recipeDetails = `
+           <p>A colorful stir-fry with juicy chicken pieces and a mix of fresh vegetables like lettuce, onion, and cabbage, all tossed in a savory sauce and served over fluffy white rice.</p>
+           <p>Sauté bite-sized chicken pieces in a pan until browned. Add chopped lettuce, onion, and cabbage, cooking until vegetables are tender. Serve the stir-fry over cooked white rice, drizzled with your favorite stir-fry sauce.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (carbs === 'Rice' && vegetables === 'Cabbage' && protein === 'Chicken') {
+        const recipeName = '<h2>Rainbow Chicken Veggie Stir-Fry over Rice</h2>';
+        const recipeDetails = `
+           <p>A colorful stir-fry with juicy chicken pieces and a mix of fresh vegetables like lettuce, onion, and cabbage, all tossed in a savory sauce and served over fluffy white rice.</p>
+           <p>Sauté bite-sized chicken pieces in a pan until browned. Add chopped lettuce, onion, and cabbage, cooking until vegetables are tender. Serve the stir-fry over cooked white rice, drizzled with your favorite stir-fry sauce.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (carbs === 'Spaghetti' && vegetables === 'Broccoli' && protein === 'Chicken') {
+        const recipeName = '<h2>Classic Chicken Meatballs with Spaghetti & Steamed Broccoli</h2>';
+        const recipeDetails = `
+           <p>Tender and flavorful chicken meatballs served atop al dente spaghetti, accompanied by lightly steamed, nutrient-rich broccoli.</p>
+           <p>Mix ground chicken with breadcrumbs, egg, and seasonings to form meatballs. Bake them until golden and cooked through. Cook spaghetti as per package instructions. Steam broccoli until tender. Serve meatballs over spaghetti with a sauce of your choice.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (carbs === 'Rice' && vegetables === 'Broccoli' && protein === 'Beef') {
+        const recipeName = '<h2>Asian Fusion Beef & Broccoli with Jasmine Rice</h2>';
+        const recipeDetails = `
+           <p>This dish combines tender slices of beef and fresh broccoli in a rich, Asian-inspired sauce, served over aromatic jasmine rice.</p>
+           <p>Stir-fry thin slices of beef until browned, then add broccoli florets and cook until tender. Mix in a savory Asian sauce and serve over cooked jasmine rice.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (carbs === 'Potatoes' && vegetables === 'Onion' && protein === 'Beef') {
+        const recipeName = '<h2>Hearty Beef and Onion Pot Roast with Potato Wedges</h2>';
+        const recipeDetails = `
+           <p>A comforting meal featuring slow-cooked beef and onions, resulting in a tender, flavorful pot roast, accompanied by crispy potato wedges.</p>
+           <p>Slow cook a beef roast with onions, broth, and seasonings until tender. Cut potatoes into wedges, toss with oil and spices, and roast until crispy. Serve the pot roast with the potato wedges.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (carbs === 'Spaghetti' && vegetables === 'Cabbage' && protein === 'Beef') {
+        const recipeName = '<h2>Bistro-Style Beef Cabbage Rolls with Buttered Spaghetti</h2>';
+        const recipeDetails = `
+           <p>Savory beef-filled cabbage rolls, cooked to perfection, paired with buttery, lightly seasoned spaghetti.</p>
+           <p>Cook ground beef with seasonings, wrap in boiled cabbage leaves, and bake with tomato sauce. Boil spaghetti, then toss with butter, parsley, and salt. Serve the cabbage rolls with the spaghetti on the side.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (carbs === 'Potatoes' && vegetables === 'Cabbage' && protein === 'Fish') {
+        const recipeName = '<h2>Mediterranean Fish Fillet with Cabbage Slaw & Herbed Potatoes</h2>';
+        const recipeDetails = `
+           <p>A light and healthy dish featuring seasoned fish fillets, paired with a zesty cabbage slaw and herb-infused roasted potatoes.</p>
+           <p>Season fish fillets and bake until flaky. Combine shredded cabbage with a vinaigrette for the slaw. Roast diced potatoes with herbs and olive oil until golden.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (carbs === 'Rice' && vegetables === 'Onion' && protein === 'Fish') {
+        const recipeName = '<h2>Lemon Butter Fish over Onion Rice Pilaf</h2>';
+        const recipeDetails = `
+           <p>Delicate fish fillets cooked in a lemon butter sauce, served over a bed of fragrant onion rice pilaf.</p>
+           <p>Sauté fish fillets in lemon butter sauce until cooked. Cook rice with onions and broth until fluffy. Serve the fish over the rice pilaf.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (carbs === 'Spaghetti' && vegetables === 'Lettuce' && protein === 'Fish') {
+        const recipeName = '<h2>Sea Breeze Fish Tacos with Lettuce & Spaghetti Slaw</h2>';
+        const recipeDetails = `
+           <p>A fun and flavorful meal with fish tacos, topped with a unique spaghetti and lettuce slaw, embodying the freshness of the sea.</p>
+           <p>Grill or fry fish fillets and break into pieces. Toss cooked spaghetti and lettuce with a light dressing. Fill tacos with fish and top with spaghetti slaw.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (carbs === 'Potatoes' && vegetables === 'Onion' && protein === 'Pork') {
+        const recipeName = '<h2>Smoky Pork Chops with Caramelized Onion & Creamy Mashed Potatoes</h2>';
+        const recipeDetails = `
+           <p>Juicy, smoky pork chops accompanied by sweet caramelized onions and smooth, creamy mashed potatoes.</p>
+           <p>Grill or pan-fry seasoned pork chops. Caramelize sliced onions in a pan. Boil and mash potatoes with milk, butter, and cream. Serve the chops with onions and mashed potatoes.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (carbs === 'Rice' && vegetables === 'Broccoli' && protein === 'Pork') {
+        const recipeName = '<h2>Pork Tenderloin with Broccoli Rice Casserole</h2>';
+        const recipeDetails = `
+           <p>Juicy, smoky pork chops accompanied by sweet caramelized onions and smooth, creamy mashed potatoes.</p>
+           <p>Roast a pork tenderloin in the oven. Cook rice and broccoli, mix with a creamy sauce, and bake until bubbly. Slice the tenderloin and serve with the casserole.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (carbs === 'Spaghetti' && vegetables === 'Broccoli' && protein === 'Pork') {
+        const recipeName = '<h2>Sizzling Pork Stir-Fry with Rainbow Veggies over Spaghetti</h2>';
+        const recipeDetails = `
+           <p>A vibrant and tasty stir-fry featuring tender pork strips and a medley of colorful vegetables, served over spaghetti.</p>
+           <p>Stir-fry pork strips and assorted vegetables (like bell peppers, carrots, onions) in a pan. Cook spaghetti, toss everything together with a savory sauce.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (carbs === 'Potatoes' && vegetables === 'Onion' && protein === 'Eggs') {
+        const recipeName = '<h2>Fluffy Omelette with Broccoli and Cheesy Potatoes</h2>';
+        const recipeDetails = `
+           <p>A light and fluffy omelette filled with broccoli and served with a side of cheesy, golden-brown potatoes.</p>
+           <p>Whisk eggs and cook in a pan to make a fluffy omelette, adding steamed broccoli florets. Cook diced potatoes until crispy, then sprinkle with cheese and let it melt.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (carbs === 'Rice' && vegetables === 'Onion' && protein === 'Eggs') {
+        const recipeName = '<h2>Egg Fried Rice with Mixed Veggies </h2>';
+        const recipeDetails = `
+           <p>A quick and easy dish combining scrambled eggs, mixed vegetables, and rice, all stir-fried to create a comforting meal.</p>
+           <p>Scramble eggs in a pan, then add cooked rice and chopped vegetables. Stir-fry everything together, seasoning to taste.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (carbs === 'Rice' && vegetables === 'Lettuce' && protein === 'Eggs') {
+        const recipeName = '<h2>Egg Fried Rice with Mixed Veggies </h2>';
+        const recipeDetails = `
+           <p>A quick and easy dish combining scrambled eggs, mixed vegetables, and rice, all stir-fried to create a comforting meal.</p>
+           <p>Scramble eggs in a pan, then add cooked rice and chopped vegetables. Stir-fry everything together, seasoning to taste.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (carbs === 'Rice' && vegetables === 'Cabbage' && protein === 'Eggs') {
+        const recipeName = '<h2>Egg Fried Rice with Mixed Veggies </h2>';
+        const recipeDetails = `
+           <p>A quick and easy dish combining scrambled eggs, mixed vegetables, and rice, all stir-fried to create a comforting meal.</p>
+           <p>Scramble eggs in a pan, then add cooked rice and chopped vegetables. Stir-fry everything together, seasoning to taste.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (carbs === 'Rice' && vegetables === 'Broccoli' && protein === 'Eggs') {
+        const recipeName = '<h2>Egg Fried Rice with Mixed Veggies </h2>';
+        const recipeDetails = `
+           <p>A quick and easy dish combining scrambled eggs, mixed vegetables, and rice, all stir-fried to create a comforting meal.</p>
+           <p>Scramble eggs in a pan, then add cooked rice and chopped vegetables. Stir-fry everything together, seasoning to taste.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    }
+    return 'No recipe available for the selected combination.';
+}
+
 function getDairyProteinVegetablesRecipe(dairy, protein, vegetables){
     if (dairy === 'Milk' && protein === 'Chicken' && vegetables === 'Broccoli') {
         const recipeName = '<h2>Creamy Broccoli Chicken</h2>';
@@ -447,6 +581,111 @@ function getDairyProteinVegetablesRecipe(dairy, protein, vegetables){
         const recipeDetails = `
            <p>Tender pork medallions are served alongside broccoli florets sautéed in butter. The pork is rich and savory, and the butter enhances the broccoli's natural flavors, making for a simple yet elegant meal.</p>
            <p>Cook pork medallions in a pan until done, sauté broccoli florets in butter until tender, and serve together.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Cheese' && protein === 'Chicken' && vegetables === 'Lettuce') {
+        const recipeName = '<h2>Cheesy Chicken Lettuce Cups</h2>';
+        const recipeDetails = `
+           <p>Juicy chicken pieces mixed with melted cheese, served in crisp lettuce leaves for a light and flavorful meal.</p>
+           <p>Cook chicken pieces, mix with melted cheese, and spoon into lettuce leaves for a light and tasty meal.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Butter' && protein === 'Beef' && vegetables === 'Broccoli') {
+        const recipeName = '<h2>Buttered Beef and Broccoli Stir-Fry</h2>';
+        const recipeDetails = `
+           <p>Savory beef strips stir-fried with fresh broccoli in a rich butter sauce, combining for a quick and tasty dish.</p>
+           <p>Sauté beef strips and broccoli in butter, season to taste, and serve as a quick stir-fry.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Cheese' && protein === 'Pork' && vegetables === 'Cabbage') {
+        const recipeName = '<h2>Cheesy Pork-Stuffed Cabbage Rolls</h2>';
+        const recipeDetails = `
+           <p>Tender cabbage leaves filled with seasoned ground pork and cheese, baked to perfection.</p>
+           <p>Wrap seasoned ground pork and cheese in cabbage leaves, bake until the cabbage is tender and the filling is cooked.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Milk' && protein === 'Eggs' && vegetables === 'Onion') {
+        const recipeName = '<h2>Creamy Onion and Egg Scramble</h2>';
+        const recipeDetails = `
+           <p>Soft scrambled eggs cooked with caramelized onions and a touch of creamy milk for a comforting breakfast.</p>
+           <p>Caramelize onions, then add beaten eggs and a splash of milk, cooking until the eggs are softly scrambled.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Milk' && protein === 'Fish' && vegetables === 'Broccoli') {
+        const recipeName = '<h2>Creamy Broccoli Fish Bake</h2>';
+        const recipeDetails = `
+           <p>Flaky fish fillets baked with broccoli in a creamy milk sauce, creating a deliciously comforting casserole.</p>
+           <p>Lay fish fillets and broccoli in a baking dish, pour over a creamy milk sauce, and bake until the fish is flaky.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Milk' && protein === 'Chicken' && vegetables === 'Onion') {
+        const recipeName = '<h2>Creamy Onion Chicken Skillet</h2>';
+        const recipeDetails = `
+           <p>Chicken breasts cooked in a skillet with a rich, creamy onion sauce, offering a simple yet flavorful meal.</p>
+           <p>Cook chicken breasts in a skillet, add a creamy onion sauce, and simmer until the chicken is tender.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Cheese' && protein === 'Beef' && vegetables === 'Broccoli') {
+        const recipeName = '<h2>Broccoli Beef Cheese Melt</h2>';
+        const recipeDetails = `
+           <p>Tender beef and broccoli topped with melted cheese, a satisfying and hearty combination.</p>
+           <p>Cook beef and broccoli, top with cheese until melted, and serve as a hearty and satisfying dish.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Butter' && protein === 'Pork' && vegetables === 'Lettuce') {
+        const recipeName = '<h2>Buttered Pork Lettuce Wraps</h2>';
+        const recipeDetails = `
+           <p>Thinly sliced pork cooked in butter and wrapped in lettuce for a light, flavorful meal.</p>
+           <p>Cook thin pork slices in butter, wrap in lettuce leaves, and season for a flavorful, light meal.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Butter' && protein === 'Eggs' && vegetables === 'Cabbage') {
+        const recipeName = '<h2>Buttered Cabbage Omelette</h2>';
+        const recipeDetails = `
+           <p>A fluffy omelette filled with butter-sautéed cabbage, offering a unique twist on a breakfast classic.</p>
+           <p>Sauté cabbage in butter, pour in beaten eggs, and cook into a fluffy omelette.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Cheese' && protein === 'Fish' && vegetables === 'Lettuce') {
+        const recipeName = '<h2>Lettuce-Wrapped Fish Tacos with Cheese</h2>';
+        const recipeDetails = `
+           <p>Grilled fish and cheese served in lettuce wraps for a healthy and tasty taco alternative.</p>
+           <p>Grill fish, place in lettuce leaves with cheese, and serve as a healthy taco variant.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Cheese' && protein === 'Chicken' && vegetables === 'Broccoli') {
+        const recipeName = '<h2>Chicken Broccoli Cheese Quiche</h2>';
+        const recipeDetails = `
+           <p>A savory quiche filled with chicken, broccoli, and cheese, perfect for brunch or a light dinner.</p>
+           <p>Combine chicken, broccoli, and cheese in a quiche mixture, bake until set and golden.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Milk' && protein === 'Beef' && vegetables === 'Onion') {
+        const recipeName = '<h2>Creamy Onion Beef Stroganoff</h2>';
+        const recipeDetails = `
+           <p>Beef strips cooked in a creamy onion sauce, served over pasta or rice for a classic comfort dish.</p>
+           <p>Sauté beef strips, add onions and a creamy sauce, and serve over your choice of pasta or rice.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Milk' && protein === 'Pork' && vegetables === 'Broccoli') {
+        const recipeName = '<h2>Milk-Braised Pork with Broccoli</h2>';
+        const recipeDetails = `
+           <p>Pork pieces braised in milk until tender, served with steamed broccoli for a wholesome meal.</p>
+           <p>Brown pork pieces, add milk and simmer until tender, serve with steamed broccoli.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Cheese' && protein === 'Eggs' && vegetables === 'Onion') {
+        const recipeName = '<h2>Cheesy Onion Egg Muffins</h2>';
+        const recipeDetails = `
+           <p>Baked egg muffins with onions and cheese, ideal for a grab-and-go breakfast or snack.</p>
+           <p>Mix eggs, onions, and cheese, pour into muffin tins, and bake until set.</p>
+        `;
+        return `${recipeName}\n\n${recipeDetails}`;
+    } else if (dairy === 'Butter' && protein === 'Fish' && vegetables === 'Cabbage') {
+        const recipeName = '<h2>Buttered Cabbage with Herbed Fish</h2>';
+        const recipeDetails = `
+           <p>Lightly seasoned fish served with buttered cabbage, a simple yet elegant dish.</p>
+           <p>Season fish with herbs, cook with buttered cabbage until fish is tender and cabbage is slightly wilted.</p>
         `;
         return `${recipeName}\n\n${recipeDetails}`;
     } 
@@ -635,8 +874,8 @@ function getDairyProteinVegetablesCarbsRecipe(dairy, protein, vegetables, carbs)
            <p>In a skillet, sauté pork and broccoli in butter until both are cooked through. Serve this mixture over cooked rice for a simple, yet flavorful meal.</p>
         `;
         return `${recipeName}\n\n${recipeDetails}`;
+    }
     return 'No recipe available for the selected combination.';
-}
 }
 
 function getRecipeDetails(items) {

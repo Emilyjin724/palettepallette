@@ -188,7 +188,7 @@ button:hover {
 
 .close {
   display: flex;
-  float: right;
+  float: none;
   padding: 5px 10px;
   background-color: #e78474;
   color: #f4f5f6;
@@ -196,6 +196,9 @@ button:hover {
   font-weight: bold;
   cursor: pointer;
   font-size: 26px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
 
