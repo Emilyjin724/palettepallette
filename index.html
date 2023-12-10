@@ -8,7 +8,8 @@
     <!-- PUT A TITLE IN HERE -->
     <title>Recipe Generator</title>
     <!-- PUT A DESCRIPTION IN HERE -->
-    <meta name="description" content="describe content of the page here...." />
+    <meta name="description" content="generate recipes from the ingredients you chose" />
+    <link rel="shortcut icon" type="image/png" href="images/icon.png" />
     <!-- LINK TO ANY FRAMEWORK STYLES HERE-->
     <!-- LINK TO YOUR STYLES -->
     <link rel="stylesheet" href="styles/styles.css" type="text/css" />
@@ -16,101 +17,166 @@
     <!-- LINK TO EXTERNAL JS LIBRARIES HERE -->
     <!-- LINK TO YOUR JS HERE. NOTE THE DEFER ATTRIBUTE. -->
     <script src="scripts/scripts.js" defer></script>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 </head>
 
+
+
 <body>
-    <!-- YOUR HTML GOES HERE -->
-    <main>
+    <main id="main">
         <header>
-            <div class="sitename">palette pallette</div>
+            <div class="sitename"><a href="index.html">palette pallette</a></div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="index.html">Recipe Generator</a></li>
                     <li><a href="about.html">About</a></li>
                 </ul>
             </nav>
+            <div class="menu-toggle">
+                <div class="menu-bars"></div>
+                <div class="menu-bars"></div>
+                <div class="menu-bars"></div>
+            </div>
         </header>
+
         <h1 class="headline">
             Recipe Generator
         </h1>
-        <p class="instruction-text">Select one ingredient from each row that you have in your refrigerator, and discover a delicious recipe you can create!</p>
+        <div class="center-container">
+            <p class="instruction-text">Select one ingredient from each category that you have in your refrigerator, and bear will find delicious recipes for you to create!</p>
+        </div>        
         <section class="container" id="main-container">
 
-            <div class="ingredients">
-                <ul class="list1 dairy">
-                    <li onclick="selectItem('dairy', 'Milk')">
-                        <img src="./images/Milk.png" alt="Milk">
-                    </li>
-                    <li onclick="selectItem('dairy', 'Cheese')">
-                        <img src="./images/Cheese.png" alt="Cheese">
-                    </li>
-                    <li onclick="selectItem('dairy', 'Butter')">
-                        <img src="./images/Butter.png" alt="Butter">
-                    </li>
-                </ul>
-                <ul class="list2 vegetables">
-                    <li onclick="selectItem('vegetables', 'Broccoli')">
-                        <img src="./images/Broccoli.png" alt="Broccoli">
-                    </li>
-                    <li onclick="selectItem('vegetables', 'Cabbage')">
-                        <img src="./images/Cabbage.png" alt="Cabbage">
-                    </li>
-                    <li onclick="selectItem('vegetables', 'Lettuce')">
-                        <img src="./images/Lettuce.png" alt="Lettuce">
-                    </li>
-                    <li onclick="selectItem('vegetables', 'Onion')">
-                        <img src="./images/Onion.png" alt="Onion">
-                    </li>
+            <div class="pick-items">
+                <div class="ingredients-container">
+                    <fieldset>
+                        <legend>Dairy</legend>
+                        <input type="radio" id="milk" name="dairy" value="milk" class="ingredient-radio">
+                        <label for="milk">
+                            <img src="./images/milk.png" alt="Milk" class="ingredient-image">
+                            <span class="label-text">Milk</span>
+                        </label>
+                        <input type="radio" id="cheese" name="dairy" value="cheese" class="ingredient-radio">
+                        <label for="cheese">
+                            <img src="./images/cheese.png" alt="Cheese" class="ingredient-image">
+                            <span class="label-text">Cheese</span>
+                        </label>
+                        <input type="radio" id="butter" name="dairy" value="butter" class="ingredient-radio">
+                        <label for="butter">
+                            <img src="./images/butter.png" alt="Butter" class="ingredient-image">
+                            <span class="label-text">Butter</span>
+                        </label>
+                    </fieldset>
 
-                </ul>
-                <ul class="list3 protein">
-                    <li onclick="selectItem('protein', 'Beef')">
-                        <img src="./images/Beef.png" alt="Beef">
-                    </li>
-                    <li onclick="selectItem('protein', 'Fish')">
-                        <img src="./images/Fish.png" alt="Fish">
-                    </li>
-                    <li onclick="selectItem('protein', 'Chicken')">
-                        <img src="./images/Chicken.png" alt="Chicken">
-                    </li>
-                    <li onclick="selectItem('protein', 'Pork')">
-                        <img src="./images/Pork.png" alt="Pork">
-                    </li>
-                    <li onclick="selectItem('protein', 'Eggs')">
-                        <img src="./images/Eggs.png" alt="Eggs">
-                    </li>
-                </ul>
-                <ul class="list4 carbs">
-                    <li onclick="selectItem('carbs', 'Spaghetti')">
-                        <img src="./images/Spaghetti.png" alt="Spaghetti">
-                    </li>
-                    <li onclick="selectItem('carbs', 'Rice')">
-                        <img src="./images/Rice.png" alt="Rice">
-                    </li>
-                    <li onclick="selectItem('carbs', 'Potatoes')">
-                        <img src="./images/Potatoes.png" alt="Potatoes">
-                    </li>
-                </ul>
+                    <fieldset>
+                        <legend>Vegetables</legend>
+                        <input type="radio" id="broccoli" name="vegetables" value="broccoli" class="ingredient-radio">
+                        <label for="broccoli">
+                            <img src="./images/broccoli.png" alt="Broccoli" class="ingredient-image">
+                            <span class="label-text">Broccoli</span>
+                        </label>
+                        <input type="radio" id="cabbage" name="vegetables" value="cabbage" class="ingredient-radio">
+                        <label for="cabbage">
+                            <img src="./images/cabbage.png" alt="Cabbage" class="ingredient-image">
+                            <span class="label-text">Cabbage</span>
+                        </label>
+                        <input type="radio" id="lettuce" name="vegetables" value="lettuce" class="ingredient-radio">
+                        <label for="lettuce">
+                            <img src="./images/lettuce.png" alt="Lettuce" class="ingredient-image">
+                            <span class="label-text">Lettuce</span>
+                        </label>
+                        <input type="radio" id="onion" name="vegetables" value="onion" class="ingredient-radio">
+                        <label for="onion">
+                            <img src="./images/onion.png" alt="Onion" class="ingredient-image">
+                            <span class="label-text">Onion</span>
+                        </label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Protein</legend>
+                        <input type="radio" id="beef" name="protein" value="beef" class="ingredient-radio">
+                        <label for="beef">
+                            <img src="./images/beef.png" alt="Beef" class="ingredient-image">
+                            <span class="label-text">Beef</span>
+                        </label>
+                        <input type="radio" id="fish" name="protein" value="fish" class="ingredient-radio">
+                        <label for="fish">
+                            <img src="./images/fish.png" alt="Fish" class="ingredient-image">
+                            <span class="label-text">Fish</span>
+                        </label>
+                        <input type="radio" id="chicken" name="protein" value="chicken" class="ingredient-radio">
+                        <label for="chicken">
+                            <img src="./images/chicken.png" alt="Chicken" class="ingredient-image">
+                            <span class="label-text">Chicken</span>
+                        </label>
+                        <input type="radio" id="pork" name="protein" value="pork" class="ingredient-radio">
+                        <label for="pork">
+                            <img src="./images/pork.png" alt="Pork" class="ingredient-image">
+                            <span class="label-text">Pork</span>
+                        </label>
+                        <input type="radio" id="eggs" name="protein" value="eggs" class="ingredient-radio">
+                        <label for="eggs">
+                            <img src="./images/eggs.png" alt="Eggs" class="ingredient-image">
+                            <span class="label-text">Eggs</span>
+                        </label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Carbs</legend>
+                        <input type="radio" id="spaghetti" name="carbs" value="spaghetti" class="ingredient-radio">
+                        <label for="spaghetti">
+                            <img src="./images/spaghetti.png" alt="Spaghetti" class="ingredient-image">
+                            <span class="label-text">Spaghetti</span>
+                        </label>
+                        <input type="radio" id="rice" name="carbs" value="rice" class="ingredient-radio">
+                        <label for="rice">
+                            <img src="./images/rice.png" alt="Rice" class="ingredient-image">
+                            <span class="label-text">Rice</span>
+                        </label>
+                        <input type="radio" id="potatoes" name="carbs" value="potatoes" class="ingredient-radio">
+                        <label for="potatoes">
+                            <img src="./images/potatoes.png" alt="Potatoes" class="ingredient-image">
+                            <span class="label-text">Potatoes</span>
+                        </label>
+                    </fieldset>
+
+                </div>
+
+                <div class="bowl-container">
+                    <ul class="bowl" id="bowl">
+                    </ul>
+                </div>
+
             </div>
-            <div class="bowl-container">
-                <ul class="bowl" id="bowl">
-                </ul>
+            <div class="btns">
+                <button id="showBtn">Generate</button>
+                <button id="reset">Reset</button>
             </div>
-
-
         </section>
-        <div class="btns">
-            <button id="generate" onclick="generateRecipe()">Generate</button>
-            <button id="reset" onclick="resetBowl()">Reset</button>
-        </div>
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closePopup()">&times;</span>
-                <div id="popupContent"></div>
+
+    </main>
+    <section id="resultOutput-container">
+        <div class="content-container swiper mySwiper">
+            <div id="resultOutput" class="swiper-wrapper"></div>
+            <div class="swiper-button-next">
+                <img src="./images/right.png" alt="right arrow" style="width: 60px;">
+            </div>
+            <div class="swiper-button-prev">
+                <img src="./images/left.png" alt="left arrow" style="width: 60px;">
+            </div>
+            <div class="swiper-pagination"></div>
+            <div id="close-btn">
+                <!-- close btn image icon -->
+                <img src="./images/close.png" alt="close button" style="width: 20px;">
             </div>
         </div>
-    </main>
-    <!-- YOUR EXTERNAL PLUG-IN MAY ASK YOU TO PUT A SCRIPT TAG HERE. -->
+    </section>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </body>
 
 </html>
