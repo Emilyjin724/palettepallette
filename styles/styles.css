@@ -292,18 +292,18 @@ header {
     width: 40px
     transition: all 0.3s ease;
   }
-  .menu-image {
-    position: absolute !important;
+  .menu-bear {
+    position: absolute;
     bottom: 0;
-    right: 0;
-    width: 213px; 
-    height: auto;
-    transition: transform 0.3s ease;
-    transform: translateX(100%);
-  }
-  .checkbox:checked ~ .menu-items .menu-image {
-  transform: translateX(0); 
+    right: 0; /* Adjust as needed */
+    transform: translateX(100%); /* Start off-screen */
+    transition: transform 0.5s ease-in-out; /* Match the duration and easing to menu-items */
 }
+
+.checkbox:checked ~ .menu-bear {
+    transform: translateX(0); /* Slide into view when checkbox is checked */
+}
+
 }
 
 /*instruction text on index*/
