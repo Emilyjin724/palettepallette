@@ -19,6 +19,7 @@
     <script src="scripts/scripts.js" defer></script>
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./styles/nav.css">
 
 </head>
 
@@ -28,7 +29,15 @@
     <main id="main">
         <header>
             <div class="sitename"><a href="index.html">palette pallette</a></div>
-            <nav class="navbar">
+            <section class="navbar navbar-desktop">
+                <div class="nav">
+                    <nav class="desktop-menu-item">
+                        <li><a href="generator.html">Recipe Generator</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </nav>
+                </div>
+            </section>
+            <nav class="navbar navbar-mobile">
                 <div class="container nav-container">
                     <input class="checkbox" type="checkbox" id="nav-toggle" />
                     <div class="hamburger-lines">
@@ -41,28 +50,19 @@
                         <li><a href="about.html">About</a></li>
                     </div>
                 </div>
+                <div class="menu-items">
+                    <img src="./images/bearnav.png" alt="Bear on Nav" class="menu-image">
+                </div>
             </nav>
-            <!---
-            <nav>
-                <ul>
-                    <li><a href="generator.html">Recipe Generator</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle">
-                <div class="menu-bars"></div>
-                <div class="menu-bars"></div>
-                <div class="menu-bars"></div>
-            </div>
-        -->
         </header>
 
         <h1 class="headline">
             Recipe Generator
         </h1>
         <div class="center-container">
-            <p class="instruction-text">Select one ingredient from each category that you have in your refrigerator, and bear will find delicious recipes for you to create!</p>
-        </div>        
+            <p class="instruction-text">Select one ingredient from each category that you have in your refrigerator, and
+                bear will find delicious recipes for you to create!</p>
+        </div>
         <section class="container" id="main-container">
 
             <div class="pick-items">

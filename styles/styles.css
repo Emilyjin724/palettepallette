@@ -24,6 +24,7 @@ body {
   min-height: 100dvh;
   font-family: "Neuton", serif;
   color: #262730;
+  overflow-x: hidden;
 }
 fieldset {
   border: none;
@@ -44,9 +45,14 @@ main {
 
 header nav {
   display: flex;
-  right: 30px;
 }
-
+nav li {
+  list-style-type: none;
+}
+nav li a {
+  color: black;
+  text-decoration: none;
+}
 header {
   font-family: "Playpen Sans", cursive;
   display: flex;
@@ -63,45 +69,54 @@ header {
   z-index: 1000;
 }
 
-.navbar .container .menu-items {
-  display: flex; /* Aligns items in a row */
-  list-style-type: none; /* Removes bullet points */
+/* Style for the container of the navigation bar */
+.nav-container {
+  display: flex;
+  justify-content: flex-end; /* Aligns items to the right */
+}
+
+/* Style for the menu items */
+.menu-items {
+  list-style-type: none; /* Removes default list styling */
+  justify-content: flex-end; 
+  display: flex; /* Enables flexbox for inline layout */
+  gap: 20px; /* Space between each menu item */
   padding: 0; /* Removes default padding */
   margin: 0; /* Removes default margin */
-  align-items: center; /* Vertically center items */
-  justify-content: space-between; /* Spaces items evenly */
 }
 
-.navbar .container .menu-items li {
-  margin-right: 20px; /* Spacing between menu items */
+/* Style for the links inside the menu items */
+.menu-items li a {
+  color: #262730; /* Sets text color to black */
+  text-decoration: none; /* Optional: Removes underline from links */
 }
 
-.navbar .container .menu-items li:last-child {
-  margin-right: 0; /* No margin for the last item */
+.navbar-desktop .nav {
+  display: flex;
+  justify-content: flex-end; /* Aligns the menu to the right */
+  align-self: flex-start; 
 }
 
-.navbar .container .menu-items li a {
-  text-decoration: none; /* Removes underline from links */
-  color: inherit; /* Inherits color from parent elements */
-  padding: 10px 15px; /* Adds padding for clickable area */
+.desktop-menu-item {
+  list-style-type: none; /* Removes default list styling */
+  display: flex; /* Enables flexbox for inline layout */
+  gap: 20px; /* Space between each menu item */
+  margin-top: -10px;
 }
 
-.navbar .container .menu-items li a:hover {
-  color: #0e2431; /* Change as per your desired hover color */
+.desktop-menu-item li a {
+  color: black; /* Sets text color to black */
+  font-size: 20px;
+  text-decoration: none; /* Optional: Removes underline from links */
+  /* Add other link styles as needed */
 }
-
-
-
-/*
-nav ul li a,
-.sitename a {
-  color: inherit;
-  text-decoration: none;
-}*/
+.sitename{
+  width: 400px;
+}
 
 .sitename a {
   color: #262730;
-  font-size: 24px;
+  font-size: 30px;
   text-decoration: none;
 }
 
@@ -115,46 +130,6 @@ nav ul li a,
   right: 0;
   padding: 20px 0;
 }*/
-
-.navbar {
-  width: 100%;
-  box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
-}
-
-
-.nav-container {
-  display: flex;
-  list-style-type: none;
-  gap: 10px;
-  padding: 0; 
-  margin: 0; 
-  width: 100%; 
-  align-items: center; 
-  justify-content: space-between; 
-}
-
-
-nav ul li a {
-  color: inherit;
-  text-decoration: none;
-}
-
-nav ul {
-  display: flex;
-  list-style-type: none;
-  padding: 0; 
-  margin: 0; 
-  justify-content: flex-end; 
-}
-
-nav ul li {
-  display: inline-block;
-  margin-right: 20px; 
-}
-
-nav ul li:last-child {
-  margin-right: 0; 
-}
 
 
 .headline {
@@ -202,7 +177,7 @@ nav ul li:last-child {
   }
 
   .nav-container {
-    display: flex;
+    display: relative;
     justify-content: space-between;
     align-items: center;
     position: relative;
@@ -220,16 +195,26 @@ nav ul li:last-child {
     cursor: pointer;
   }
 
+  .checkbox {
+    position: absolute; /* or 'fixed' if you want it to stay in place on scroll */
+    top: -19px; /* Adjust as needed */
+    right: -4px; /* Adjust as needed */
+    width: 40px; /* Size of the checkbox */
+    height: 40px; /* Size of the checkbox */
+    z-index: 5; /* Ensures it's above other elements */
+    opacity: 0; /* Keeps the actual checkbox invisible */
+    cursor: pointer;
+  }
   .hamburger-lines {
     display: flex;
     position: fixed;
-    top: 20px;
+    top: -17px;
     right: 20px;
     z-index: 1001;
     flex-direction: column;
     justify-content: space-between;
-    height: 26px;
-    width: 32px;
+    height: 36px;
+    width: 16px;
   }
 
   .line {
@@ -297,131 +282,32 @@ nav ul li:last-child {
   }
 
   .checkbox:checked ~ .hamburger-lines .line3 {
-    transform: rotate(-45deg) translate(7px, -7px);
+    transform: rotate(-45deg) translate(12px, -14px);
   }
 
   .hamburger-lines .line {
     display: block;
-    height: 10px;
-    width: 40px;
     background: black;
+    height: 5px;
+    width: 40px
     transition: all 0.3s ease;
   }
-
-}
-
-
-  /*header nav {
-    display: none;
-  }
-
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .menu-toggle {
-    display: block;
-    cursor: pointer;
-    padding: 10px;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translate(0, -50%);
-  }
-
-  .menu-bars {
-    width: 30px;
-    height: 3px;
-    background-color: #262730;
-    margin: 6px 0;
-    display: block;
-  }
-
-  header nav {
-    position: fixed;
-    top: 70px;
+  .menu-image {
+    position: absolute !important;
+    bottom: 0;
     right: 0;
-    width: 100%; 
-    z-index: 1000; 
-    background-color: #FFDB99;
+    width: 100px; /* Adjust as needed */
+    height: auto; /* Keep the aspect ratio */
+    transition: transform 0.3s ease;
+    transform: translateX(100%); /* Start off-screen */
+    z-index: 1000;
   }
-  
-  nav ul {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin: 0;
-  }
-  
-  nav ul li {
-    text-align: right; 
-    display: block;
-    background-color: transparent; 
-  }
-  
-  nav ul li a {
-    display: block;
-    padding: 10px; 
-  }
-  
-  nav ul li:hover {
-    background-color: #e0e2cb; 
-  }
-  */
-  
-  /*
-  nav ul {
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 0; 
-    width: 100%; 
-  }
-
-  nav ul li {
-    margin: 0;
-    text-align: right; 
-    display: block;
-    background-color: #FFDB99; 
-    width: 100%; 
-
-  nav ul li a {
-    display: block;
-    padding: 10px; 
-  }
-
-  nav ul li:hover {
-    background-color: #e0e2cb; 
-  }*/
-  
-  /*
-  ul {
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-  }
-
-  li {
-    margin: 0;
-    text-align: center;
-    display:block;
-  }
-  nav ul li:hover{
-    background-color: #FFDB99;
-  }*/
-
- 
-
-/*sitename and instruction text on index*/
-.sitename a {
-  font-size: 24px; 
-  text-decoration: none;
-  color: #262730;
+  .checkbox:checked ~ .menu-items .menu-image {
+  transform: translateX(0); /* Slide in with the menu */
 }
+}
+
+/*instruction text on index*/
 
 body {
   padding: 2rem;
@@ -606,10 +492,7 @@ button:hover {
 .swiper-button-prev {
   cursor: pointer;
   transition: opacity 0.3s;
-  background-color: white;
-  border-radius: 50%;
 }
-
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   opacity: 0.7;
@@ -662,7 +545,6 @@ button:hover {
 
 #recipe p {
   text-align: left;
-  font-size: 20px;
 }
 
 /* Button-like style for links */
@@ -889,10 +771,6 @@ button:hover {
   .about .text h1 {
     font-size: 25px; 
   }
-   #recipe {
-    border-radius: 20px;
-    margin: auto;
-  }
 }
 
 /* media queries for index*/
@@ -941,6 +819,7 @@ button:hover {
     min-height: 260px;
   }
 }
+
 @media screen and (max-width: 1024px) {
   .bowl-container {
     min-width: 410px;
@@ -956,13 +835,14 @@ button:hover {
     height: auto;
   }
   #resultOutput-container {
-    width: calc(100% - 40px) !important ; 
+    width: calc(100% - 40px);
     margin: auto;
   }
-
   .swiper-button-next img,
   .swiper-button-prev img {
     width: 45px !important;
+    background-color: white;
+    border-radius: 50%;
   }
   #resultOutput {
     padding: 0;

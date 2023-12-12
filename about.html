@@ -19,6 +19,8 @@
     <script src="scripts/scripts.js" defer></script>
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./styles/nav.css">
+
 
 </head>
 
@@ -27,7 +29,15 @@
     <main id="main">
         <header>
             <div class="sitename"><a href="index.html">palette pallette</a></div>
-            <nav class="navbar">
+            <section class="navbar navbar-desktop">
+                <div class="nav">
+                    <nav class="desktop-menu-item">
+                        <li><a href="generator.html">Recipe Generator</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </nav>
+                </div>
+            </section>
+            <nav class="navbar navbar-mobile">
                 <div class="container nav-container">
                     <input class="checkbox" type="checkbox" id="nav-toggle" />
                     <div class="hamburger-lines">
@@ -41,19 +51,6 @@
                     </div>
                 </div>
             </nav>
-            <!--
-                <nav>
-                <ul>
-                    <li><a href="generator.html">Recipe Generator</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle">
-                <div class="menu-bars"></div>
-                <div class="menu-bars"></div>
-                <div class="menu-bars"></div>
-            </div>
-        -->
         </header>
 
         <section class="display">
@@ -69,14 +66,17 @@
                         recipes designed to delight your taste buds without demanding extra trips to the grocery store!
                         Let’s transform our refrigerator finds into joyful creations together!
                     </p>
-                    <p> 
-                        Special thank you note for Prof. Surmacz, who helped me bring this website from idea to fruition. Additionally, here are some other resources that significantly contributed to the development of my website:
+                    <p>
+                        Special thank you note for Prof. Surmacz, who helped me bring this website from idea to
+                        fruition. Additionally, here are some other resources that significantly contributed to the
+                        development of my website:
                     </p>
                     <ul class="custom-bullets">
                         <li><a href="https://swiperjs.com/">Popup Window Slider Effect</a></li>
                         <li><a href="https://codepen.io/andy-set-studio/pen/MPLzay">Instruction Box Design</a></li>
+                        <li><a href="https://codepen.io/alvarotrigo/pen/wvrzPWL">Navigation Bar on Phone</a></li>
                     </ul>
-                    
+
                 </div>
             </section>
             <section class="docs">

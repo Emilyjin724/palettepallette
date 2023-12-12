@@ -1,0 +1,165 @@
+.navbar {
+    width: 100%;
+    box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+  }
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  
+  .checkbox {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 32px;
+    top: 20px;
+    left: auto;
+    right: 20px;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .checkbox {
+    position: absolute; /* or 'fixed' if you want it to stay in place on scroll */
+    top: -19px; /* Adjust as needed */
+    right: -4px; /* Adjust as needed */
+    width: 40px; /* Size of the checkbox */
+    height: 40px; /* Size of the checkbox */
+    z-index: 5; /* Ensures it's above other elements */
+    opacity: 0; /* Keeps the actual checkbox invisible */
+    cursor: pointer;
+  }
+  
+  .hamburger-lines {
+    display: block;
+    height: 36px;
+    width: 16px;
+    position: absolute;
+    top: -17px;
+    left: auto; /* Remove the left positioning */
+    right: 20px; /* Position from the right */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: #0e2431;
+  }
+  
+  .menu-items {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #e78474; /* Updated background color */
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+  }
+  
+  .checkbox:checked ~ .menu-items {
+    transform: translateX(0);
+  }
+  
+  
+  .menu-items li {
+    list-style: none;
+    margin-bottom: 1.2rem; /* Spacing between each item */
+    width: 100%;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    /* Add padding to make the blocks thicker */
+    padding: 0; /* Adjust these values as needed */
+    box-sizing: border-box; /* Include padding in the width calculation */
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu-items li:hover,
+  .menu-items li:active {
+    background-color: #f4f5f6; /* Change background color on hover/click */
+  }
+  
+  .menu-items a {
+    text-decoration: none;
+    color: white; /* Inherits color from the li element */
+    font-size: 1.5rem;
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+    height: 50px; /* Set a fixed height for each item */
+    width: 100%; /* Full width to match li element */
+  }
+  
+  .menu-items a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px; /* Fixed height */
+    width: 100%;
+    padding: 15px 20px; /* Padding here for thicker blocks */
+    box-sizing: border-box; /* Include padding in width calculation */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  }
+  
+  .menu-items a:hover {
+    color: #262730; /* Updated hover color */
+  }
+  
+  
+  .checkbox:checked ~ .hamburger-lines .line1 {
+    transform: rotate(45deg) translate(5px, 5px);
+    /* Adjust 'translate' values as needed for alignment */
+  }
+  
+  .checkbox:checked ~ .hamburger-lines .line2 {
+    opacity: 0; /* Hide the middle line */
+  }
+  
+  .checkbox:checked ~ .hamburger-lines .line3 {
+    transform: rotate(-45deg) translate(12px, -14px);
+    /* Adjust 'translate' values as needed for alignment */
+  }
+  
+  .hamburger-lines .line {
+    display: block;
+    height: 10px;
+    width: 40px; /* Adjust width as necessary */
+    background: black; /* Color of the hamburger lines */
+    transition: all 0.3s ease;
+    /* Add transitions for smooth transformation */
+  }
+  
+  @media screen and (max-width: 768px) {
+    .navbar-desktop {
+      display: none;
+    }
+    .navbar-mobile {
+      display: block;
+    }
+  }
+  
+  @media screen and (min-width: 769px) {
+    .navbar-desktop {
+      display: block;
+    }
+    .navbar-mobile {
+      display: none;
+    }
+  }
+  
