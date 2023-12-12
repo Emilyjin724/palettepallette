@@ -1254,6 +1254,7 @@ var swiper = new Swiper(".mySwiper", {
 });
 
 // navbar
+/*
 document.addEventListener("DOMContentLoaded", function () {
   const toggleButton = document.querySelector(".menu-toggle");
   const nav = document.querySelector("nav");
@@ -1262,3 +1263,4 @@ document.addEventListener("DOMContentLoaded", function () {
     nav.style.display = nav.style.display === "flex" ? "none" : "flex";
   });
 });
+*/

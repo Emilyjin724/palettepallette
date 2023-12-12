@@ -63,14 +63,45 @@ header {
   z-index: 1000;
 }
 
+.navbar .container .menu-items {
+  display: flex; /* Aligns items in a row */
+  list-style-type: none; /* Removes bullet points */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Spaces items evenly */
+}
+
+.navbar .container .menu-items li {
+  margin-right: 20px; /* Spacing between menu items */
+}
+
+.navbar .container .menu-items li:last-child {
+  margin-right: 0; /* No margin for the last item */
+}
+
+.navbar .container .menu-items li a {
+  text-decoration: none; /* Removes underline from links */
+  color: inherit; /* Inherits color from parent elements */
+  padding: 10px 15px; /* Adds padding for clickable area */
+}
+
+.navbar .container .menu-items li a:hover {
+  color: #0e2431; /* Change as per your desired hover color */
+}
+
+
+
+/*
 nav ul li a,
 .sitename a {
   color: inherit;
   text-decoration: none;
-}
+}*/
 
 .sitename a {
   color: #262730;
+  font-size: 24px;
   text-decoration: none;
 }
 
@@ -84,7 +115,14 @@ nav ul li a,
   right: 0;
   padding: 20px 0;
 }*/
-header nav ul {
+
+.navbar {
+  width: 100%;
+  box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+}
+
+
+.nav-container {
   display: flex;
   list-style-type: none;
   gap: 10px;
@@ -132,7 +170,148 @@ nav ul li:last-child {
 }
 
 @media (max-width: 768px) {
-  header nav {
+  /* Hide the regular menu */
+  .navbar .menu-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #E78474;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .checkbox,
+  .hamburger-lines,
+  .menu-items {
+    display: flex;
+  }
+
+  body {
+    font-family: "Playpen Sans", cursive; 
+  }
+
+  .navbar {
+    width: 100%;
+    box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .checkbox {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 32px;
+    top: 20px;
+    right: 20px;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .hamburger-lines {
+    display: flex;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 26px;
+    width: 32px;
+  }
+
+  .line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: #0e2431;
+  }
+
+  .menu-items {
+    background-color: #E78474;
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    transform: translateX(100%);
+  }
+
+  .checkbox:checked ~ .menu-items {
+    transform: translateX(0);
+  }
+
+  .menu-items li {
+    list-style: none;
+    margin-bottom: 1.2rem;
+    width: 100%;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+  }
+
+  .menu-items li:hover,
+  .menu-items li:active {
+    background-color: #F4F5F6;
+  }
+
+  .menu-items a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 100%;
+  }
+
+  .menu-items a:hover {
+    color: #262730;
+  }
+
+  .checkbox:checked ~ .hamburger-lines .line1 {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .checkbox:checked ~ .hamburger-lines .line2 {
+    opacity: 0;
+  }
+
+  .checkbox:checked ~ .hamburger-lines .line3 {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  .hamburger-lines .line {
+    display: block;
+    height: 10px;
+    width: 40px;
+    background: black;
+    transition: all 0.3s ease;
+  }
+
+}
+
+
+  /*header nav {
     display: none;
   }
 
@@ -190,6 +369,7 @@ nav ul li:last-child {
   nav ul li:hover {
     background-color: #e0e2cb; 
   }
+  */
   
   /*
   nav ul {
@@ -233,7 +413,8 @@ nav ul li:last-child {
   nav ul li:hover{
     background-color: #FFDB99;
   }*/
-}
+
+ 
 
 /*sitename and instruction text on index*/
 .sitename a {
@@ -425,7 +606,10 @@ button:hover {
 .swiper-button-prev {
   cursor: pointer;
   transition: opacity 0.3s;
+  background-color: white;
+  border-radius: 50%;
 }
+
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   opacity: 0.7;
@@ -478,6 +662,7 @@ button:hover {
 
 #recipe p {
   text-align: left;
+  font-size: 20px;
 }
 
 /* Button-like style for links */
@@ -704,6 +889,10 @@ button:hover {
   .about .text h1 {
     font-size: 25px; 
   }
+   #recipe {
+    border-radius: 20px;
+    margin: auto;
+  }
 }
 
 /* media queries for index*/
@@ -715,7 +904,7 @@ button:hover {
   }
 
   section#main-container {
-    margin-top: -200px;
+    margin-top: -150px;
   }
   .headline {
     margin-top: 34px;
@@ -723,7 +912,7 @@ button:hover {
   .bowl-container {
     order: -1;
     width: 100%;
-    margin-bottom: 20px; 
+    margin-bottom: -54px; 
   }
 
    .ingredient-image {
@@ -739,7 +928,7 @@ button:hover {
   }
   .bowl {
     height: auto;
-    min-height: 280px;
+    min-height: 340px;
   }
   .pick-items {
     flex-direction: column;
@@ -752,7 +941,6 @@ button:hover {
     min-height: 260px;
   }
 }
-
 @media screen and (max-width: 1024px) {
   .bowl-container {
     min-width: 410px;
@@ -768,9 +956,10 @@ button:hover {
     height: auto;
   }
   #resultOutput-container {
-    width: calc(100% - 40px);
+    width: calc(100% - 40px) !important ; 
     margin: auto;
   }
+
   .swiper-button-next img,
   .swiper-button-prev img {
     width: 45px !important;
