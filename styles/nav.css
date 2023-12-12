@@ -23,13 +23,13 @@
     cursor: pointer;
   }
   .checkbox {
-    position: absolute; /* or 'fixed' if you want it to stay in place on scroll */
-    top: -19px; /* Adjust as needed */
-    right: -4px; /* Adjust as needed */
-    width: 40px; /* Size of the checkbox */
-    height: 40px; /* Size of the checkbox */
-    z-index: 5; /* Ensures it's above other elements */
-    opacity: 0; /* Keeps the actual checkbox invisible */
+    position: absolute; 
+    top: -19px; 
+    right: -4px; 
+    width: 40px;
+    height: 40px; 
+    z-index: 5; 
+    opacity: 0; 
     cursor: pointer;
   }
   
@@ -39,8 +39,8 @@
     width: 16px;
     position: absolute;
     top: -17px;
-    left: auto; /* Remove the left positioning */
-    right: 20px; /* Position from the right */
+    left: auto; 
+    right: 20px; 
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -78,29 +78,28 @@
   
   .menu-items li {
     list-style: none;
-    margin-bottom: 1.2rem; /* Spacing between each item */
+    margin-bottom: 1.2rem; 
     width: 100%;
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-    /* Add padding to make the blocks thicker */
-    padding: 0; /* Adjust these values as needed */
-    box-sizing: border-box; /* Include padding in the width calculation */
+    transition: background-color 0.3s ease; 
+    padding: 0; 
+    box-sizing: border-box; 
     transition: background-color 0.3s ease;
   }
   
   .menu-items li:hover,
   .menu-items li:active {
-    background-color: #f4f5f6; /* Change background color on hover/click */
+    background-color: #f4f5f6; 
   }
   
   .menu-items a {
     text-decoration: none;
-    color: white; /* Inherits color from the li element */
+    color: white; 
     font-size: 1.5rem;
-    display: flex; /* Use flexbox for centering */
-    align-items: center; /* Vertical centering */
-    justify-content: center; /* Horizontal centering */
-    height: 50px; /* Set a fixed height for each item */
-    width: 100%; /* Full width to match li element */
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    height: 50px; 
+    width: 100%; 
   }
   
   .menu-items a {
@@ -110,39 +109,36 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px; /* Fixed height */
+    height: 50px; 
     width: 100%;
-    padding: 15px 20px; /* Padding here for thicker blocks */
-    box-sizing: border-box; /* Include padding in width calculation */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    padding: 15px 20px; 
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   .menu-items a:hover {
-    color: #262730; /* Updated hover color */
+    color: #262730; 
   }
   
   
   .checkbox:checked ~ .hamburger-lines .line1 {
-    transform: rotate(45deg) translate(5px, 5px);
-    /* Adjust 'translate' values as needed for alignment */
+    transform: rotate(45deg) translate(8px, 9px);
   }
   
   .checkbox:checked ~ .hamburger-lines .line2 {
-    opacity: 0; /* Hide the middle line */
+    opacity: 0;
   }
   
   .checkbox:checked ~ .hamburger-lines .line3 {
     transform: rotate(-45deg) translate(12px, -14px);
-    /* Adjust 'translate' values as needed for alignment */
   }
   
   .hamburger-lines .line {
     display: block;
-    height: 10px;
-    width: 40px; /* Adjust width as necessary */
-    background: black; /* Color of the hamburger lines */
+    height: 5px;
+    width: 40px;
+    background: black; 
     transition: all 0.3s ease;
-    /* Add transitions for smooth transformation */
   }
   
   @media screen and (max-width: 768px) {
