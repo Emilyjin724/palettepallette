@@ -1237,21 +1237,20 @@ if (showBtn) {
   showBtn.addEventListener("click", () => {
     const userChoices = getUserChoices();
     getRecipes(userChoices);
-  });
-  
-}
 
-// swiper slider
-var swiper = new Swiper(".mySwiper", {
-  pagination: {
-    el: ".swiper-pagination",
-    type: "progressbar",
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
+    // swiper slider
+    var swiper = new Swiper(".mySwiper", {
+      pagination: {
+        el: ".swiper-pagination",
+        type: "bullets",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  });
+}
 
 // navbar
 /*
