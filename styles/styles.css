@@ -622,18 +622,55 @@ button:hover {
   display: flex;
   margin: 40px 0;
   gap: 20px;
+  flex-direction: row;
+  align-items: stretch; 
 }
+
 .about .img {
   background-color: #ffdb99;
   padding: 30px;
   border-radius: 20px;
   display: flex;
-  flex-direction: column; /* Center img */
+  flex-direction: row; 
   place-items: center;
+  flex-grow: 2; 
+    margin-bottom: 20px; 
 }
+.about .img-and-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about .portfolio-links {
+  background-color: #CED3DC; 
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  flex-grow: 1; 
+}
+
+.about .portfolio-links a {
+  text-decoration: none;
+  font-family: "Playpen Sans", cursive;
+  color: #262730;
+  font-size: 18px;
+  margin: 5px 0; 
+  border-radius: 20px;
+  padding: 20px 40px;
+}
+
+.about .portfolio-links a:hover {
+  background-color: white;
+  transition: background-color 0.4s ease; 
+}
+
 .about .text {
   background-color: #e0e2cb;
-  border-radius: 20px;
+  border-radius: 10px;
   flex-basis: 100%;
   display: flex;
   flex-direction: column;
@@ -734,9 +771,37 @@ button:hover {
 
 /*media queries for about*/
 @media screen and (max-width: 768px) {
-  .about {
-    flex-direction: column; 
-  }
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Ensures children stretch to fill the container's width */
+}
+
+.about .img{
+  width: 100%; /* Full width of the container */
+  order: 1; /* Ensures this part comes first */
+  height: auto; /* Adjusts height automatically */
+  max-height: 270px; /* Maximum height on small screens */
+  padding: 10px; /* Adjust padding if needed */
+}
+
+.about .portfolio-links {
+  width: 100%; /* Full width of the container */
+  order: 2; /* Ensures this part comes first */
+  height: auto; /* Adjusts height automatically */
+  max-height: 270px; /* Maximum height on small screens */
+  padding: 10px; /* Adjust padding if needed */
+}
+
+.about .text {
+  width: 100%; /* Full width of the container */
+  order: 3 !important; /* Ensures this part comes after .img-and-links */
+}
+
+.about .img img {
+  max-width: 100%; /* Image scales down if necessary */
+  height: auto; /* Maintain aspect ratio */
+}
 
   nav ul {
     flex-direction: column; 
