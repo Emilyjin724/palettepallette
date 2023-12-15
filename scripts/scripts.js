@@ -55,42 +55,41 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 //END: add to bowl functionality
-
-
 function getUserChoices() {
   let choices = {
-    dairy: null,
-    vegetables: null,
-    carbs: null,
-    protein: null,
+    dairy: "",
+    vegetables: "",
+    carbs: "",
+    protein: "",
   };
-  // loop through each group and find out which item is selected(checked) and save it as a propterty in the object
+
   dairyChoices.forEach((item) => {
     if (item.checked) {
       choices.dairy = item.value;
     }
   });
+
   vegetableChoices.forEach((item) => {
     if (item.checked) {
       choices.vegetables = item.value;
     }
   });
+
   proteinChoices.forEach((item) => {
     if (item.checked) {
       choices.protein = item.value;
     }
   });
+
   carbChoices.forEach((item) => {
     if (item.checked) {
       choices.carbs = item.value;
     }
   });
-  // test to see if we are getting expected input from user
 
-  // call getRecipes to filter our recipe data to find matching recipes
   getRecipes(choices);
   console.log(choices);
-  return choices; // Add this line
+  return choices;
 }
 
 const data = [
@@ -1156,22 +1155,67 @@ const data = [
 ];
 
 function getRecipes(ingredients) {
+  console.log("User Choices:", ingredients);
+
+  // Check if no categories are selected
+  if (
+    ingredients.dairy === "" &&
+    ingredients.vegetables === "" &&
+    ingredients.protein === "" &&
+    ingredients.carbs === ""
+  ) {
+    // Vibrate the button
+    if (navigator.vibrate) {
+      navigator.vibrate(200);
+    }
+
+    // Vibrate and highlight vegetable items
+    const vegetableItems = document.getElementsByName("vegetables");
+    vegetableItems.forEach((item) => {
+      item.classList.add("vibrate-highlight");
+    });
+
+    // Display message and return
+    document.getElementById("pickItemsMessage").innerText =
+      "Please pick items!";
+    return;
+  }
+
+  // Clear any previous message and highlight from vegetable items
+  document.getElementById("pickItemsMessage").innerText = "";
+  const vegetableItems = document.getElementsByName("vegetables");
+  vegetableItems.forEach((item) => {
+    item.classList.remove("vibrate-highlight");
+  });
+
+  // Clear any previous message
+  document.getElementById("pickItemsMessage").innerText = "";
+
   let matchedRecipes = [];
   let recommendedRecipes = [];
 
   data.forEach((recipe) => {
     let matchScore = 0;
 
-    if (recipe.dairy === ingredients.dairy) {
+    // Check if the recipe has null values for any ingredient
+    if (Object.values(recipe).some((value) => value === null)) {
+      console.warn("Recipe has null values:", recipe);
+      return; // Skip recipes with null values
+    }
+
+    if (ingredients.dairy !== "" && recipe.dairy === ingredients.dairy) {
       matchScore += 1;
     }
-    if (recipe.vegetables === ingredients.vegetables) {
+    if (
+      ingredients.vegetables !== "" &&
+      recipe.vegetables === ingredients.vegetables
+    ) {
       matchScore += 1;
     }
-    if (recipe.protein === ingredients.protein) {
+    if (ingredients.protein !== "" && recipe.protein === ingredients.protein) {
       matchScore += 1;
     }
-    if (recipe.carbs === ingredients.carbs) {
+    if (ingredients.carbs !== "" && recipe.carbs === ingredients.carbs) {
       matchScore += 1;
     }
 
@@ -1185,9 +1229,6 @@ function getRecipes(ingredients) {
     }
   });
 
-  // Sort recommendedRecipes based on matchScore in descending order
-  recommendedRecipes.sort((a, b) => b.matchScore - a.matchScore);
-
   // Display results
   if (matchedRecipes.length > 0) {
     displayRecipes(matchedRecipes);
@@ -1198,6 +1239,7 @@ function getRecipes(ingredients) {
     _resultOutput.innerHTML = "No matching or similar recipes found.";
   }
 }
+
 // The popup content
 const popupContainer = document.getElementById("resultOutput-container");
 function displayRecipes(recipes) {
@@ -1222,7 +1264,7 @@ function displayRecipesInPopup(recipes) {
   });
 }
 
-const closeBtn = document.getElementById("close-btn")
+const closeBtn = document.getElementById("close-btn");
 if (closeBtn) {
   closeBtn.addEventListener("click", function () {
     popupContainer.style.display = "none";
@@ -1230,9 +1272,8 @@ if (closeBtn) {
   });
 }
 
-
 // Event listener
-const showBtn = document.getElementById("showBtn")
+const showBtn = document.getElementById("showBtn");
 if (showBtn) {
   showBtn.addEventListener("click", () => {
     const userChoices = getUserChoices();

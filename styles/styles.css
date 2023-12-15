@@ -775,6 +775,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: stretch; /* Ensures children stretch to fill the container's width */
+  flex-wrap: wrap; 
 }
 
 .about .img{
@@ -793,11 +794,22 @@ button:hover {
   padding: 10px; /* Adjust padding if needed */
 }
 
+.about .portfolio-links a {
+  font-size: 15px;
+  padding: 15px;
+}
 .about .text {
   width: 100%; /* Full width of the container */
   order: 3 !important; /* Ensures this part comes after .img-and-links */
 }
 
+.about .text h1{
+  font-size: 20px;
+}
+.about .text p, .custom-bullets {
+  font-size: 15px;
+  line-height: initial;
+}
 .about .img img {
   max-width: 100%; /* Image scales down if necessary */
   height: auto; /* Maintain aspect ratio */
@@ -833,15 +845,6 @@ button:hover {
 
   .custom-bullets li a {
     font-size: 16px; 
-  }
-  
-
-  .about .text p {
-    font-size: 18px; 
-  }
-  
-  .about .text h1 {
-    font-size: 25px; 
   }
 }
 
