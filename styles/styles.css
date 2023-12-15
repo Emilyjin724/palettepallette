@@ -639,7 +639,7 @@ button:hover {
 .about .img-and-links {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .about .portfolio-links {
